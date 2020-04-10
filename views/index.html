@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="../models/wheel.js"></script>
+  <script src="../models/car.js"></script>
+  <script src="../controllers/controller.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/595f436dd9.js" crossorigin="anonymous"></script>
+
+
+  <title>Car Selector</title>
+</head>
+<body>
+  <div class="container1">
+    <h1 class="display-1">Car Creation</h1>
+    <a href="#" class="button" id="buttonCreate">click to add a vehicle</a>
+  </div>
+
+  <div class="popup-1">
+    <div class="popup-content" id="popupCreateCar">
+      <button type="button" id="close1" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="container-pop row d-flex">
+        <div class="col-xs-4">
+          <label class="lead" for="License Plate">License Plate</label>
+          <input type="text" id="licensePlate" name="License Plate" value="" placeholder="1234BCD">
+        </div>
+        <div class="col-xs-4">
+          <label class="lead" for="brand">Brand</label>
+          <select type="text" class="lead select" id="brand">
+            <option value="">Please Select</option>
+            <option>SEAT</option>
+            <option>VW</option>
+            <option>BMW</option>
+            <option>OPEL</option>
+            <option>AUDI</option>
+          </select>
+        </div>
+        <div class="col-xs-4">
+          <label class="lead" for="color">Color</label>
+          <select type="text" class="lead select" id="color">
+            <option value="">Please Select</option>
+            <option>Red</option>
+            <option>White</option>
+            <option>Blue</option>
+            <option>Black</option>
+            <option>Grey</option>
+          </select>
+        </div>
+      </div>
+      <p></p>
+      <div class="container1 create">
+        <button class="button text-decoration-none create" id="generateCar" onclick="createCar()">Create car</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup-2">
+    <div class="popup-content2">
+      <button type="button" id="close2" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <!-- container car info -->
+      <div class="container-pop2 row d-flex align-items-center">
+        <div class="col-xs-4 d-flex align-items-center">
+          <i class="far fa-id-badge pr-2"></i>
+          <span class="text1" id="plateLog"></span>
+        </div>
+        <div class="col-xs-4 d-flex align-items-center">
+          <svg class="fas fa-car pr-2 lead"></svg>
+          <span class="text1" id="brandLog"></span>
+        </div>
+        <div class="col-xs-4 d-flex align-items-center">
+          <svg class="fas fa-fill-drip pr-2 lead"></svg>
+          <span class="text1" id="colorLog"></span>
+        </div>
+      </div>
+      <!-- end of container car info -->
+
+      <!-- container add wheels -->
+      <div class="container-pop2 row d-flex align-items-center">
+        <section class="col-xs-3">
+          <label class="lead" for="brandWheel1">Wheel brand 1</label>
+          <select type="text" class="lead select" id="brandWheel1">
+            <option value="">Please Select</option>
+            <option>DLC</option>
+            <option>BBS</option>
+            <option>Enkei</option>
+            <option>OZ</option>
+          </select>
+        </section>
+        <section class="col-xs-3">
+          <label class="lead" for="brandWheel2">Wheel brand 2</label>
+          <select type="text" class="lead select" id="brandWheel2">
+            <option value="">Please Select</option>
+            <option>DLC</option>
+            <option>BBS</option>
+            <option>Enkei</option>
+            <option>OZ</option>
+          </select>
+        </section>
+        <section class="col-xs-3">
+          <label class="lead" for="brandWheel3">Wheel brand 3</label>
+          <select type="text" class="lead select" id="brandWheel3">
+            <option value="">Please Select</option>
+            <option>DLC</option>
+            <option>BBS</option>
+            <option>Enkei</option>
+            <option>OZ</option>
+          </select>
+        </section>
+        <section class="col-xs-3">
+          <label class="lead" for="brandWheel4">Wheel brand 4</label>
+          <select type="text" class="lead select" id="brandWheel4">
+            <option value="">Please Select</option>
+            <option>DLC</option>
+            <option>BBS</option>
+            <option>Enkei</option>
+            <option>OZ</option>
+          </select>
+        </section>
+      </div>
+      <div class="container-pop2 row d-flex align-items-center">
+        <section class="col-xs-3">
+          <label class="lead" for="Wheel1">Wheel Diameter 1</label>
+          <input type="text" id="wheel1" name="Wheel Diameter" value="" placeholder="between 0.4 and 2">
+        </section>
+        <section class="col-xs-3">
+          <label class="lead" for="Wheel2">Wheel Diameter 2</label>
+          <input type="text" id="wheel2" name="Wheel Diameter" value="" placeholder="between 0.4 and 2">
+        </section>
+        <section class="col-xs-3">
+          <label class="lead" for="Wheel3">Wheel Diameter 3</label>
+          <input type="text" id="wheel3" name="Wheel Diameter" value="" placeholder="between 0.4 and 2">
+        </section>
+        <section class="col-xs-3">
+          <label class="lead" for="Wheel4">Wheel Diameter 4</label>
+          <input type="text" id="wheel4" name="Wheel Diameter" value="" placeholder="between 0.4 and 2">
+        </section>
+      </div>
+
+      <!-- end of container add wheels -->
+      <!-- container button -->
+      <div class="container-pop2 row d-flex align-items-center">
+        <section class="col-xs-6">
+          <button class="button text-decoration-none create" onclick="validateWheels()" id="validateWheels" >Validate Wheels</button>
+        </section>
+        <section class="col-xs-6">
+          <button class="button text-decoration-none create" disabled onclick="addWheels()" id="addWheels">Add Wheels</button>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- third Pop-up (with final information) -->
+  <div class="popup-3">
+    <div class="popup-content3">
+      <button type="button" id="close3" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <!-- container car info -->
+      <div class="container-pop2 row d-flex align-items-center">
+        <div class="col-xs-4 d-flex align-items-center">
+          <i class="far fa-id-badge pr-2"></i>
+          <span class="text1" id="plateLog2"></span>
+        </div>
+        <div class="col-xs-4 d-flex align-items-center">
+          <svg class="fas fa-car pr-2 lead"></svg>
+          <span class="text1" id="brandLog2"></span>
+        </div>
+        <div class="col-xs-4 d-flex align-items-center">
+          <svg class="fas fa-fill-drip pr-2 lead"></svg>
+          <span class="text1" id="colorLog2"></span>
+        </div>
+      </div>
+      <!-- end of container car info -->
+      <!-- wheel brand container -->
+      <div class="container-pop2 row d-flex align-items-center">
+        <section class="col-xs-3">
+          <label class="lead" for="Wheel1"><b>Wheel Brand 1</b></label>
+          <span class="text1" id="brand1Log"></span>
+        </section>
+        <section class="col-xs-3">
+          <label class="lead" for="Wheel1"><b>Wheel Brand 2</b></label>
+          <span class="text1" id="brand2Log"></span>
+        </section>
+        <section class="col-xs-3">
+          <label class="lead" for="Wheel1"><b>Wheel Brand 3</b></label>
+          <span class="text1" id="brand3Log"></span>
+        </section>
+        <section class="col-xs-3">
+          <label class="lead" for="Wheel1"><b>Wheel Brand 4</b></label>
+          <span class="text1" id="brand4Log"></span>
+        </section>
+
+      </div>
+      <!-- wheel diameter container -->
+      <div class="container-pop2 row d-flex align-items-center">
+        <section class="col-xs-3">
+          <label class="lead" for="Wheel1"><b>Wheel Diameter 1</b></label>
+          <span class="text1" id="wheel1Log"></span>
+        </section>
+        <section class="col-xs-3">
+          <label class="lead" for="Wheel1"><b>Wheel Diameter 2</b></label>
+          <span class="text1" id="wheel2Log"></span>
+        </section>
+        <section class="col-xs-3">
+          <label class="lead" for="Wheel1"><b>Wheel Diameter 3</b></label>
+          <span class="text1" id="wheel3Log"></span>
+        </section>
+        <section class="col-xs-3">
+          <label class="lead" for="Wheel1"><b>Wheel Diameter 4</b></label>
+          <span class="text1" id="wheel4Log"></span>
+        </section>
+        <section class="col-xs-6">
+          <button class="button text-decoration-none create" id="newCar">Generate New Car</button>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+
+  document.getElementById("buttonCreate").addEventListener("click", function(){
+    document.querySelector(".popup-1").style.display = "flex";
+  })
+
+  document.getElementById("close1").addEventListener("click", function(){
+    document.querySelector(".popup-1").style.display = "none";
+    document.querySelector(".popup-2").style.display = "none";
+  })
+
+  document.getElementById("close2").addEventListener("click", function(){
+    document.querySelector(".popup-1").style.display = "none";
+    document.querySelector(".popup-2").style.display = "none";
+  });
+
+  document.getElementById("close3").addEventListener("click", function(){
+    document.querySelector(".popup-1").style.display = "none";
+    document.querySelector(".popup-2").style.display = "none";
+    document.querySelector(".popup-3").style.display = "none";
+  });
+
+  document.getElementById("newCar").addEventListener("click", function(){
+    document.querySelector(".popup-1").style.display = "none";
+    document.querySelector(".popup-2").style.display = "none";
+    document.querySelector(".popup-3").style.display = "none";
+  });
+</script>
+</body>
+</html>
