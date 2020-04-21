@@ -1,14 +1,6 @@
 var car:any;
 var brand:string[] = [];
 var wheel:number[] = [];
-var brand1:string;
-var brand2:string;
-var brand3:string;
-var brand4:string;
-var wheel1:number;
-var wheel2:number;
-var wheel3:number;
-var wheel4:number;
 var n: number = 4; //number of wheels
 
 function createCar(plate:string,brand:string,color:string){
