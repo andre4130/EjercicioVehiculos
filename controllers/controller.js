@@ -1,14 +1,6 @@
 var car;
 var brand = [];
 var wheel = [];
-var brand1;
-var brand2;
-var brand3;
-var brand4;
-var wheel1;
-var wheel2;
-var wheel3;
-var wheel4;
 var n = 4; //number of wheels
 function createCar(plate, brand, color) {
     var plate = document.getElementById("licensePlate").value;
